@@ -1,0 +1,1 @@
+- hover on store item in store list with the same name will style as hover all stores with the same name 
