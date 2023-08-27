@@ -9,6 +9,7 @@ import toast from "react-hot-toast";
 import * as z from "zod";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {Trash} from "lucide-react";
+import {useOrigin} from "@/hooks/use-origin";
 import {Heading} from "@/components/ui/heading";
 import {Button} from "@/components/ui/button";
 import {Separator} from "@/components/ui/separator";
@@ -36,6 +37,7 @@ type SettingsFormValues = z.infer<typeof formSchema>;
 export const SettingsForm: React.FC<SettingsFormProps> = ({initialData}) => {
   const params = useParams();
   const router = useRouter();
+  const origin = useOrigin();
 
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -125,7 +127,7 @@ export const SettingsForm: React.FC<SettingsFormProps> = ({initialData}) => {
       <Separator />
       <ApiAlert
         title="NEXT_PUBLIC_API_URL"
-        description="test descr"
+        description={`${origin}/api/${params.storeId}`}
         variant="public"
       />
     </>
