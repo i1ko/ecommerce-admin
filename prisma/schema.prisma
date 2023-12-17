@@ -5,6 +5,13 @@ generator client {
   provider = "prisma-client-js"
 }
 
+// generates schema as mentioned in docs
+// https://www.prisma.io/docs/orm/prisma-schema/overview/generators
+generator erd {
+  provider = "prisma-erd-generator"
+  output   = "../ERD.svg"
+}
+
 datasource db {
   provider     = "mysql"
   url          = env("DATABASE_URL")
