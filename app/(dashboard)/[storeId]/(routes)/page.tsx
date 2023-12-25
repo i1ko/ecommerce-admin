@@ -1,4 +1,3 @@
-import prismadb from "@/lib/prismadb";
 import {CreditCard, DollarSign, Package} from "lucide-react";
 import {formatter} from "@/lib/utils";
 import {getTotalRevenue} from "@/actions/get-total-revenue";
