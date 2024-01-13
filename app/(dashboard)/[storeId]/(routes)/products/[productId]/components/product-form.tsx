@@ -90,8 +90,10 @@ export const ProductForm: React.FC<ProductFormProps> = ({
     try {
       setLoading(true)
       if (initialData) {
+        process.env.NODE_ENV !== "production" && console.log('PATCH: product creating with selected "initialData":', initialData);
         await axios.patch(`/api/${params.storeId}/products/${params.productId}`, data);
       } else {
+        process.env.NODE_ENV !== "production" && console.log('POST: product creating with selected "data":', data);
         await axios.post(`/api/${params.storeId}/products`, data);
       }
       router.refresh();

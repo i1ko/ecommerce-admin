@@ -168,6 +168,9 @@ export async function DELETE (
     return NextResponse.json(product);
   } catch (error) {
     console.log("[PRODUCT_DELETE]", error);
-    return new NextResponse("Internal error", {status: 500})
+    throw NextResponse.json({
+      error,
+      status: 500
+    })
   }
 }

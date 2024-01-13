@@ -37,7 +37,8 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
       router.refresh();
       toast.success("Product deleted.")
     } catch (error) {
-      toast.error("Make sure you removed all categories using this product first.");
+      process.env.NODE_ENV !== "production" && console.log("onDelete: client method with error", error);
+      toast.error("Some error was occurred. You can try to clarify were you removed all categories using this product first. If yes and still error – please do contacts with support");
     } finally {
       setLoading(false)
       setOpen(false)
